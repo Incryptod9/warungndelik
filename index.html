@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Ndelik - Kuliner Khas Jawa & Token Crypto $WN</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #1B5E20;
+            --secondary-green: #2E7D32;
+            --accent-yellow: #FBC02D;
+            --light-yellow: #FFFDE7;
+            --dark-wood: #3E2723;
+            --warm-brown: #5D4037;
+            --bg-cream: #FAF8F5;
+            --text-dark: #212121;
+            --text-muted: #616161;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 52px;
+            width: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-yellow);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--warm-brown);
+            display: block;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-wood);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .btn-token {
+            background-color: var(--primary-green);
+            color: #fff !important;
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
+            transition: transform 0.2s, background-color 0.3s !important;
+        }
+
+        .btn-token:hover {
+            background-color: #134216 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(27, 94, 32, 0.75), rgba(62, 39, 35, 0.85)), url('foto_ramai_kuliner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--dark-wood);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: var(--dark-wood);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(251, 192, 45, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #f9a825;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-green);
+        }
+
+        /* Vibes & Atmosphere Section */
+        .vibes-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .vibes-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .vibes-card img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .vibes-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            padding: 1.2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .vibes-badge h4 {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .vibes-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .feature-box {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            background-color: var(--light-yellow);
+            color: var(--primary-green);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            border: 1px solid var(--accent-yellow);
+        }
+
+        /* Menu Highlights */
+        .menu-section {
+            background-color: #F1F8E9;
+            padding: 5rem 2rem;
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid #E0E0E0;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .menu-card h3 {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .price-tag {
+            color: var(--warm-brown);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* Crypto Token $WN Section */
+        .token-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--dark-wood) 0%, #1c2e1f 100%);
+            color: white;
+        }
+
+        .token-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .token-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .token-header h2 {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+        }
+
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .token-stat-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(251, 192, 45, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .token-stat-card h4 {
+            color: #A5D6A7;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .token-stat-card p {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .contract-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border: 1px dashed var(--accent-yellow);
+        }
+
+        .contract-code {
+            font-family: monospace;
+            color: var(--accent-yellow);
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b261c;
+            color: #B0BEC5;
+            padding: 3rem 2rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            nav ul {
+                display: none; /* Can be expanded with JS for mobile menu */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-wrapper">
+                <img src="logo_warung_ndelik.png" alt="Logo Warung Ndelik" class="logo-img">
+                <div>
+                    <span class="logo-text">Warung Ndelik</span>
+                    <span class="logo-tagline">Gampang Golekane Mantep Rasane</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#tentang">Tentang Us</a></li>
+                    <li><a href="#suasana">Suasana</a></li>
+                    <li><a href="#menu">Menu Rumah</a></li>
+                    <li><a href="#token">$WN Token</a></li>
+                    <li><a href="#token" class="btn-token"><i class="fa-solid fa-coins"></i> Crypto $WN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-wheat-awn"></i> Vibes Pulang ke Rumah Mbah</span>
+            <h1>Cita Rasa Kuliner Jawa di Tepi Sawah yang Asri</h1>
+            <p>Nongkrong santai, makan bareng keluarga, sampai kumpul bestie. Menyuguhkan menu rumahan khas Jawa dengan cita rasa mantap, suasana adem tepi sawah, dan harga ramah di kantong!</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn-primary"><i class="fa-solid fa-utensils"></i> Lihat Menu Khas</a>
+                <a href="#token" class="btn-secondary"><i class="fa-solid fa-wallet"></i> Beli Token $WN</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vibes & Atmosphere Section -->
+    <section id="suasana" class="vibes-section">
+        <div class="section-title">
+            <h2>Suasana Vintage & Kebersamaan</h2>
+            <p>Rasakan kehangatan kumpul bersama di bangunan joglo kayu bernuansa pedesaan</p>
+        </div>
+
+        <div class="grid-2">
+            <div class="vibes-card">
+                <img src="foto_ramai_kuliner.jpg" alt="Suasana Ramai Warung Ndelik">
+                <div class="vibes-badge">
+                    <h4><i class="fa-solid fa-location-dot" style="color:#d32f2f;"></i> Rayung Kusuman IV Mranggen, Demak</h4>
+                    <p style="font-size: 0.88rem; color: #555;">Ramai dikunjungi keluarga & komunitas untuk menikmati santapan khas Jawa.</p>
+                </div>
+            </div>
+
+            <div class="vibes-text">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <div>
+                        <h3 style="color: var(--primary-green);">Pemandangan Tepi Sawah</h3>
+                        <p style="color: var(--text-muted);">Nikmati hembusan angin sepoi-sepoi dan pemandangan hijau persawahan yang menyejukkan mata saat menyantap hidangan.</p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-people-group"></i></div>
+                    <div>
+                        <h3 style="color: var(--primary-green);">Kumpul Bareng Bestie & Keluarga</h3>
+                        <p style="color: var(--text-muted);">Tempat yang luas, hangat, dan ramah untuk acara arisan, kumpul komunitas, atau sekadar makan siang bersama keluarga.</p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-store"></i></div>
+                    <div>
+                        <h3 style="color: var(--primary-green);">Konsep Vintage Joglo Kayu</h3>
+                        <p style="color: var(--text-muted);">Gaya arsitektur bernuansa nostalgia rumah Mbah dengan lampu gantung hangat dan ornamen tradisional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="section-title">
+            <h2>Menu Rumahan Mantep Rasane</h2>
+            <p>Masakan khas Jawa racikan resep warisan dengan bahan-bahan segar pilihan</p>
+        </div>
+
+        <div class="menu-grid">
+            <div class="menu-card">
+                <i class="fa-solid fa-bowl-food" style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                <h3>Soto & Mangut Lele</h3>
+                <p>Mangut lele asap kuah santan gurih pedas manis dan soto segar berkaldu kaya rempah Jawa.</p>
+                <span class="price-tag">Mulai Rp 12.000</span>
+            </div>
+
+            <div class="menu-card">
+                <i class="fa-solid fa-drumstick-bite" style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                <h3>Ayam Goreng Lengkuas</h3>
+                <p>Ayam ungkep bumbu meresap digoreng garing dengan taburan kremes lengkuas yang gurih renyah.</p>
+                <span class="price-tag">Mulai Rp 18.000</span>
+            </div>
+
+            <div class="menu-card">
+                <i class="fa-solid fa-glass-water" style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                <h3>Es Beras Kencur & Teh Poci</h3>
+                <p>Minuman tradisional penyegar dahaga, seduhan teh poci gula batu dan jamu tradisional beras kencur.</p>
+                <span class="price-tag">Mulai Rp 5.000</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web3 & Token $WN Section -->
+    <section id="token" class="token-section">
+        <div class="token-container">
+            <div class="token-header">
+                <h2><i class="fa-solid fa-coins"></i> Crypto Token: Warung Ndelik ($WN)</h2>
+                <p style="color: #C8E6C9; margin-top: 0.5rem;">Warung Ndelik memadukan kearifan lokal kuliner Jawa dengan teknologi Blockchain ERC-20 Smart Contract.</p>
+            </div>
+
+            <div class="token-grid">
+                <div class="token-stat-card">
+                    <h4>Nama Token</h4>
+                    <p>Warung Ndelik</p>
+                </div>
+                <div class="token-stat-card">
+                    <h4>Symbol / Ticker</h4>
+                    <p>$W / WN</p>
+                </div>
+                <div class="token-stat-card">
+                    <h4>Total Supply</h4>
+                    <p>100 B ($WN)</p>
+                </div>
+                <div class="token-stat-card">
+                    <h4>Decimals</h4>
+                    <p>18</p>
+                </div>
+            </div>
+
+            <div class="contract-box">
+                <div>
+                    <h4 style="color: white; margin-bottom: 0.3rem;"><i class="fa-solid fa-file-code"></i> Solidity Smart Contract (ERC-20)</h4>
+                    <span class="contract-code">Features: Mintable, Pauseable, Ownable, Transferable, Withdrawable, Tradeable</span>
+                </div>
+                <a href="https://github.com/Incryptod9/warungndelik" target="_blank" style="background: var(--accent-yellow); color: var(--dark-wood); padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none;">
+                    <i class="fa-brands fa-github"></i> Lihat Repository GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4 style="color: var(--accent-yellow);">Warung Ndelik</h4>
+                <p>Tempat vintage yang menyuguhkan vibes pulang ke rumah si Mbah. Cocok buat nongkrong santai, makan bareng keluarga, hingga kumpul bestie.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Lokasi Kami</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Rayung Kusuman IV, Mranggen, Kabupaten Demak, Jawa Tengah</p>
+                <p style="margin-top: 0.5rem;"><i class="fa-solid fa-clock"></i> Buka Setiap Hari: 10.00 - 22.00 WIB</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ekosistem Digital</h4>
+                <p><i class="fa-brands fa-github"></i> GitHub: <code>Incryptod9/warungndelik</code></p>
+                <p><i class="fa-solid fa-shield-halved"></i> Smart Contract: Ready for Deployment</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Warung Ndelik - Gampang Golekane Mantep Rasane. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
