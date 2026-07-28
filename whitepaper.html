@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitepaper - Warung Ndelik ($WN Token)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #1B5E20;
+            --secondary-green: #2E7D32;
+            --accent-yellow: #FBC02D;
+            --light-yellow: #FFFDE7;
+            --dark-wood: #3E2723;
+            --warm-brown: #5D4037;
+            --bg-cream: #FAF8F5;
+            --text-dark: #212121;
+            --text-muted: #616161;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 52px;
+            width: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-yellow);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--warm-brown);
+            display: block;
+            font-style: italic;
+        }
+
+        .btn-back {
+            background-color: var(--primary-green);
+            color: #fff !important;
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #134216;
+            transform: translateY(-2px);
+        }
+
+        /* Banner Header */
+        .wp-header {
+            background: linear-gradient(135deg, var(--dark-wood) 0%, #1c2e1f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .wp-header h1 {
+            font-size: 2.8rem;
+            color: var(--accent-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .wp-header p {
+            color: #A5D6A7;
+            font-size: 1.1rem;
+        }
+
+        .wp-meta {
+            margin-top: 1rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(251, 192, 45, 0.4);
+        }
+
+        /* Document Container */
+        .wp-container {
+            max-width: 900px;
+            margin: -2rem auto 4rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #E0E0E0;
+        }
+
+        .wp-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .wp-section h2 {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .wp-section h3 {
+            color: var(--warm-brown);
+            font-size: 1.3rem;
+            margin: 1.2rem 0 0.6rem;
+        }
+
+        .wp-section p {
+            margin-bottom: 1rem;
+            color: #424242;
+        }
+
+        .wp-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .wp-section li {
+            margin-bottom: 0.5rem;
+            color: #424242;
+        }
+
+        /* Spec Table */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-cream);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .spec-table th, .spec-table td {
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .spec-table th {
+            background-color: var(--primary-green);
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .code-box {
+            background: #1e1e1e;
+            color: var(--accent-yellow);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 1rem 0;
+        }
+
+        .disclaimer-box {
+            background: #FFF3E0;
+            border-left: 5px solid #FB8C00;
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #E65100;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b261c;
+            color: #B0BEC5;
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .wp-container {
+                padding: 1.5rem;
+                margin-top: 1rem;
+            }
+            .wp-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo_warung_ndelik.png" alt="Logo Warung Ndelik" class="logo-img">
+                <div>
+                    <span class="logo-text">Warung Ndelik</span>
+                    <span class="logo-tagline">Gampang Golekane Mantep Rasane</span>
+                </div>
+            </a>
+            <a href="index.html" class="btn-back"><i class="fa-solid fa-house"></i> Kembali ke Beranda</a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="wp-header">
+        <h1>WHITEPAPER $WN TOKEN</h1>
+        <p>Integrasi Kuliner Tradisional Jawa & Ekosistem Digital Blockchain</p>
+        <div class="wp-meta"><i class="fa-solid fa-file-code"></i> Versi 1.0 — Juli 2026</div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="wp-container">
+
+        <!-- Section 1 -->
+        <section class="wp-section">
+            <h2>1. Ringkasan Eksekutif (Executive Summary)</h2>
+            <p><strong>Warung Ndelik</strong> (<em>"Gampang Golekane Mantep Rasane"</em>) menghadirkan inovasi pemanfaatan aset dunia nyata (<em>Real-World Asset / RWA</em>) dan Web3 Loyalty System. Proyek ini menggabungkan kehangatan kuliner bernuansa vintage Jawa yang berlokasi di Rayung Kusuman IV Mranggen, Demak, dengan efisiensi teknologi blockchain ERC-20.</p>
+            <p>Token <strong>$WN</strong> berfungsi sebagai token utilitas utama untuk menjembatani pengunjung fisik warung, komunitas kuliner, serta partisipan Web3. Melalui $WN, kami membangun sistem loyalty, diskon eksklusif, hingga pembayaran digital terdesentralisasi.</p>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="wp-section">
+            <h2>2. Latar Belakang & Visi</h2>
+            <p>Usaha Mikro, Kecil, dan Menengah (UMKM) kuliner tradisional sering menghadapi tantangan dalam membangun retensi pelanggan yang terdigitalisasi secara transparan. Di sisi lain, ekosistem kripto sering kali kekurangan aset yang memiliki guna nyata di kehidupan sehari-hari.</p>
+            <h3>Visi Utama Proyek:</h3>
+            <ul>
+                <li><strong>Bridging Web2 & Web3:</strong> Memperkenalkan teknologi aset digital kepada masyarakat melalui pengalaman kuliner sehari-hari.</li>
+                <li><strong>Real Utility:</strong> Memberikan nilai guna fisik pada token $WN yang dapat ditukarkan langsung di lokasi warung.</li>
+                <li><strong>Community Empowerment:</strong> Membangun ruang berkumpul fisik bernuansa pedesaan yang didukung oleh tata kelola komunitas terdesentralisasi.</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="wp-section">
+            <h2>3. Spesifikasi Token & Kontrak Pintar</h2>
+            <p>Token $WN dibangun di atas arsitektur Smart Contract ERC-20 yang stabil, aman, dan kompatibel dengan ekosistem EVM.</p>
+
+            <table class="spec-table">
+                <tr>
+                    <th>Parameter</th>
+                    <th>Detail Spesifikasi</th>
+                </tr>
+                <tr>
+                    <td>Nama Token</td>
+                    <td>Warung Ndelik</td>
+                </tr>
+                <tr>
+                    <td>Ticker / Symbol</td>
+                    <td>$WN (atau $W)</td>
+                </tr>
+                <tr>
+                    <td>Total Supply</td>
+                    <td>100.000.000.000 $WN (100 Miliar)</td>
+                </tr>
+                <tr>
+                    <td>Desimal</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Standar Kontrak</td>
+                    <td>ERC-20 / BEP-20 Compatible</td>
+                </tr>
+            </table>
+
+            <h3>Smart Contract Address</h3>
+            <div class="code-box">
+                0x84B8058D298700b14E9E893983bEDa3f99E84116
+            </div>
+
+            <h3>Fitur Keamanan Smart Contract:</h3>
+            <ul>
+                <li><strong>Mintable:</strong> Kontrol pencetakan token terukur untuk pengembangan ekosistem jangka panjang.</li>
+                <li><strong>Pausable:</strong> Mekanisme darurat untuk penghentian sementara transaksi jika terdeteksi aktivitas mencurigakan.</li>
+                <li><strong>Ownable & Transferable:</strong> Manajerial terverifikasi serta fleksibilitas transfer antar wallet pengguna.</li>
+                <li><strong>Tradeable & Withdrawable:</strong> Kompatibel dengan Decentralized Exchange (DEX) dan pengelolaan cadangan likuiditas.</li>
+            </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="wp-section">
+            <h2>4. Utilitas Token ($WN) di Dunia Nyata</h2>
+            <ul>
+                <li><strong>Diskon Khusus Holder:</strong> Potongan harga untuk varian menu khas seperti Ayam Goreng Lengkuas, Mangut Lele, dan Teh Poci bagi pemegang token $WN.</li>
+                <li><strong>Kasir Digital (Web3 Payment):</strong> Opsi pembayaran non-tunai langsung melalui Web3 Wallet di kasir Warung Ndelik.</li>
+                <li><strong>Eksklusivitas Komunitas:</strong> Akses reservasi area joglo untuk kumpul komunitas, arisan, atau <i>Web3 Meetup</i>.</li>
+                <li><strong>Governance (Hak Suara):</strong> Pemegang token dapat menentukan promo bulanan atau penambahan varian menu baru melalui pemungutan suara (voting).</li>
+            </ul>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="wp-section">
+            <h2>5. Peta Jalan (Roadmap)</h2>
+            <h3>Fase 1: Inisiasi & Web Launch (Q1 - Q2 2026)</h3>
+            <p>Deployment Smart Contract $WN, penerbitan Landing Page resmi, dan kesiapan operasional warung fisik di Demak.</p>
+            
+            <h3>Fase 2: Integrasi Web3 & Likuiditas (Q3 2026)</h3>
+            <p>Peluncuran Liquidity Pool di DEX, uji coba pembayaran Web3 di kasir, dan aktivasi program diskon holder.</p>
+
+            <h3>Fase 3: Ekosistem & Ekspansi (Q4 2026+)</h3>
+            <p>Pengembangan sistem keanggotaan digital (NFT Proof-of-Visit) dan kemitraan dengan jaringan UMKM lokal sekitar.</p>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="wp-section">
+            <div class="disclaimer-box">
+                <i class="fa-solid fa-triangle-exclamation"></i> <strong>Penafian (Disclaimer):</strong><br>
+                Token $WN dibuat sebagai instrumen utilitas dan keanggotaan digital ekosistem Warung Ndelik. Aset digital memiliki volatilitas nilai. Dokumen ini bertujuan sebagai informasi teknis dan bukan merupakan ajakan investasi atau saran finansial resmi.
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Warung Ndelik - Gampang Golekane Mantep Rasane. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
